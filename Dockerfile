@@ -32,8 +32,11 @@ RUN cd src/backend/base && uv sync --frozen --no-dev
 
 # Build frontend
 WORKDIR /app/src/frontend
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN npm ci && npm run build && cp -r build /app/src/backend/base/axiestudio/frontend
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+ENV NPM_CONFIG_CACHE="/tmp/.npm"
+RUN npm ci --no-audit --no-fund && \
+    NODE_OPTIONS="--max-old-space-size=8192" npm run build && \
+    cp -r build /app/src/backend/base/axiestudio/frontend
 
 ################################
 # RUNTIME STAGE
