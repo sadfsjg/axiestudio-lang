@@ -41,7 +41,6 @@ RUN pip install --upgrade pip && \
     pip install openinference-instrumentation-langchain && \
     pip install langwatch opik && \
     pip install nv-ingest-client && \
-    pip install docling && \
     pip cache purge
 
 # Build frontend

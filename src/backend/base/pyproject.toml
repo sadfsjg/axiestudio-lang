@@ -124,7 +124,7 @@ dependencies = [
     "langwatch>=0.1.0",
     "opik>=0.1.0",
     "nv-ingest-client>=0.1.0",
-    "docling>=0.1.0",
+
 ]
 
 [dependency-groups]
