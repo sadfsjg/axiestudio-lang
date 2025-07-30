@@ -44,17 +44,38 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       "process.env.BACKEND_URL": JSON.stringify(
-        envAxiestudio.BACKEND_URL ?? "http://localhost:7860",
+        envAxiestudio.BACKEND_URL ?? env.BACKEND_URL ?? "http://localhost:7860",
       ),
       "process.env.ACCESS_TOKEN_EXPIRE_SECONDS": JSON.stringify(
-        envAxiestudio.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
+        envAxiestudio.ACCESS_TOKEN_EXPIRE_SECONDS ?? env.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
       ),
-      "process.env.CI": JSON.stringify(envAxiestudio.CI ?? false),
+      "process.env.CI": JSON.stringify(envAxiestudio.CI ?? env.CI ?? false),
       "process.env.AXIESTUDIO_AUTO_LOGIN": JSON.stringify(
-        envAxiestudio.AXIESTUDIO_AUTO_LOGIN ?? true,
+        envAxiestudio.AXIESTUDIO_AUTO_LOGIN ?? env.AXIESTUDIO_AUTO_LOGIN ?? true,
       ),
       "process.env.AXIESTUDIO_FEATURE_MCP_COMPOSER": JSON.stringify(
-        envAxiestudio.AXIESTUDIO_FEATURE_MCP_COMPOSER ?? "false",
+        envAxiestudio.AXIESTUDIO_FEATURE_MCP_COMPOSER ?? env.AXIESTUDIO_FEATURE_MCP_COMPOSER ?? "false",
+      ),
+      "process.env.AXIESTUDIO_SECRET_KEY": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_SECRET_KEY ?? env.AXIESTUDIO_SECRET_KEY ?? "",
+      ),
+      "process.env.AXIESTUDIO_SUPERUSER": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_SUPERUSER ?? env.AXIESTUDIO_SUPERUSER ?? "",
+      ),
+      "process.env.AXIESTUDIO_SUPERUSER_PASSWORD": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_SUPERUSER_PASSWORD ?? env.AXIESTUDIO_SUPERUSER_PASSWORD ?? "",
+      ),
+      "process.env.AXIESTUDIO_NEW_USER_IS_ACTIVE": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_NEW_USER_IS_ACTIVE ?? env.AXIESTUDIO_NEW_USER_IS_ACTIVE ?? true,
+      ),
+      "process.env.AXIESTUDIO_CACHE_TYPE": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_CACHE_TYPE ?? env.AXIESTUDIO_CACHE_TYPE ?? "simple",
+      ),
+      "process.env.AXIESTUDIO_LOG_LEVEL": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_LOG_LEVEL ?? env.AXIESTUDIO_LOG_LEVEL ?? "info",
+      ),
+      "process.env.AXIESTUDIO_WORKERS": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_WORKERS ?? env.AXIESTUDIO_WORKERS ?? 1,
       ),
     },
     plugins: [react(), svgr(), tsconfigPaths()],

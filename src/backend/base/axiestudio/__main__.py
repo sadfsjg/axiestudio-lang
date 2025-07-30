@@ -514,7 +514,7 @@ def build_version_notice(current_version: str, package_name: str) -> str:
 
     Example:
         >>> build_version_notice("1.0.0", "axiestudio")
-        'A new version of langflow is available: 1.1.0'
+        'A new version of axiestudio is available: 1.1.0'
     """
     with suppress(httpx.ConnectError):
         latest_version = fetch_latest_version(package_name, include_prerelease=axiestudio_is_pre_release(current_version))
@@ -666,7 +666,7 @@ def superuser(
     asyncio.run(_create_superuser())
 
 
-# command to copy the langflow database from the cache to the current directory
+# command to copy the axiestudio database from the cache to the current directory
 # because now the database is stored per installation
 @app.command()
 def copy_db() -> None:
@@ -783,7 +783,7 @@ def show_version(*, value: bool):
         default = "DEV"
         raw_info = get_version_info()
         version = raw_info.get("version", default) if raw_info else default
-        typer.echo(f"langflow {version}")
+        typer.echo(f"axiestudio {version}")
         raise typer.Exit
 
 
