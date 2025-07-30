@@ -29,8 +29,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy dependency files first for better caching
-COPY uv.lock pyproject.toml README.md ./
-COPY src/backend/base/uv.lock src/backend/base/pyproject.toml src/backend/base/README.md ./src/backend/base/
+COPY uv.lock pyproject.toml ./
+COPY src/backend/base/uv.lock src/backend/base/pyproject.toml ./src/backend/base/
 
 # Install Python dependencies
 RUN uv sync --frozen --no-install-project --no-editable --extra postgresql
