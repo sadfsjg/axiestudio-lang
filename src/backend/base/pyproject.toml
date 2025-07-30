@@ -123,6 +123,11 @@ dependencies = [
     "openinference-instrumentation-langchain>=0.1.0",
     "langwatch>=0.1.0",
     "opik>=0.1.0",
+    "langchain-google-community>=0.1.0",
+    "langchain-anthropic>=0.1.0",
+    "langchain-astradb>=0.1.0",
+    "e2b-code-interpreter>=0.1.0",
+    "pytube>=15.0.0",
 
 
 ]
