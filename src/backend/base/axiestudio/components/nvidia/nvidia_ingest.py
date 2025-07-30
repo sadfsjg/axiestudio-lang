@@ -22,7 +22,7 @@ class NvidiaIngestComponent(BaseFileComponent):
     except ImportError:
         msg = (
             "NVIDIA Retriever Extraction (nv-ingest) dependencies missing. "
-            "Please install them using your package manager. (e.g. uv pip install langflow[nv-ingest])"
+            "Please install them using your package manager. (e.g. uv pip install axiestudio[nv-ingest])"
         )
         VALID_EXTENSIONS = [msg]
 
@@ -162,7 +162,7 @@ class NvidiaIngestComponent(BaseFileComponent):
         except ImportError as e:
             msg = (
                 "NVIDIA Retriever Extraction (nv-ingest) dependencies missing. "
-                "Please install them using your package manager. (e.g. uv pip install langflow[nv-ingest])"
+                "Please install them using your package manager. (e.g. uv pip install axiestudio[nv-ingest])"
             )
             raise ImportError(msg) from e
 

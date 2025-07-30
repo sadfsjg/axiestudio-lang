@@ -34,17 +34,27 @@ RUN pip install --upgrade pip && \
     pip install langchain-ollama langchain-mistralai langchain-sambanova && \
     pip install langchain-unstructured langchain-nvidia-ai-endpoints && \
     pip install tiktoken cleanlab-tlm astra-assistants metaphor-python && \
-    pip install litellm gitpython google-api-python-client && \
-    pip install yfinance googleapiclient twelvelabs astrapy && \
-    pip install toml composio mem0
+    pip install litellm gitpython && \
+    pip install yfinance twelvelabs astrapy && \
+    pip install toml composio mem0 && \
+    pip install langchain-chroma langchain-milvus metal-sdk && \
+    pip install openinference-instrumentation-langchain && \
+    pip install langwatch opik && \
+    pip install nv-ingest-client && \
+    pip install couchbase && \
+    pip install docling && \
+    pip install unstructured && \
+    pip install homeassistant && \
+    pip cache purge
 
 # Build frontend
 WORKDIR /app/src/frontend
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 ENV NPM_CONFIG_CACHE="/tmp/.npm"
-RUN npm ci --no-audit --no-fund && \
+RUN npm ci --no-audit --no-fund --production=false && \
     NODE_OPTIONS="--max-old-space-size=8192" npm run build && \
-    cp -r build /app/src/backend/base/axiestudio/frontend
+    cp -r build /app/src/backend/base/axiestudio/frontend && \
+    npm cache clean --force
 
 ################################
 # RUNTIME STAGE
@@ -56,6 +66,7 @@ WORKDIR /app
 # Install runtime dependencies only
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
+    ffmpeg \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy virtual environment from builder
@@ -65,6 +76,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 # Copy application code
 COPY --from=builder /app/src/backend/base /app/src/backend/base
 COPY --from=builder /app/src/backend/base/axiestudio/frontend /app/src/backend/base/axiestudio/frontend
+COPY --from=builder /app/src/frontend/src/assets /app/src/backend/base/axiestudio/frontend/assets
 
 # Set working directory to the base package
 WORKDIR /app/src/backend/base

@@ -67,10 +67,10 @@ class MyCustomSource(EnvSettingsSource):
 class Settings(BaseSettings):
     # Define the default AXIESTUDIO_DIR
     config_dir: str | None = None
-    # Define if langflow db should be saved in config dir or
-    # in the langflow directory
+    # Define if axiestudio db should be saved in config dir or
+# in the axiestudio directory
     save_db_in_config_dir: bool = False
-    """Define if langflow database should be saved in AXIESTUDIO_CONFIG_DIR or in the langflow directory
+    """Define if axiestudio database should be saved in AXIESTUDIO_CONFIG_DIR or in the axiestudio directory
     (i.e. in the package directory)."""
 
     dev: bool = False
@@ -336,7 +336,7 @@ class Settings(BaseSettings):
             # Get the cache directory for the application
             cache_dir = user_cache_dir(app_name, app_author)
 
-            # Create a .langflow directory inside the cache directory
+            # Create a .axiestudio directory inside the cache directory
             value = Path(cache_dir)
             value.mkdir(parents=True, exist_ok=True)
 
@@ -378,7 +378,7 @@ class Settings(BaseSettings):
                 logger.debug(f"Saving database to config_dir: {database_dir}")
             else:
                 database_dir = Path(__file__).parent.parent.parent.resolve()
-                logger.debug(f"Saving database to langflow directory: {database_dir}")
+                logger.debug(f"Saving database to axiestudio directory: {database_dir}")
 
             pre_db_file_name = "axiestudio-pre.db"
             db_file_name = "axiestudio.db"

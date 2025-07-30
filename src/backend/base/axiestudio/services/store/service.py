@@ -73,7 +73,7 @@ def get_id_from_search_string(search_string: str) -> str | None:
 
 
 class StoreService(Service):
-    """This is a service that integrates langflow with the store which is a Directus instance.
+    """This is a service that integrates axiestudio with the store which is a Directus instance.
 
     It allows to search, get and post components to the store.
     """

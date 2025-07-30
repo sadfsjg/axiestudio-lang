@@ -6,7 +6,7 @@ import typer
 
 
 def main():
-    """Launches langflow with appropriate environment setup.
+    """Launches axiestudio with appropriate environment setup.
 
     On macOS, sets required environment variables and replaces current process.
     On other platforms, calls main function directly.
@@ -21,7 +21,7 @@ def main():
 
 
 def _launch_with_exec():
-    """Launch langflow by replacing current process with properly configured environment.
+    """Launch axiestudio by replacing current process with properly configured environment.
 
     This approach is necessary because Objective-C libraries are preloaded by the Python
     runtime before any Python code executes. Setting OBJC_DISABLE_INITIALIZE_FORK_SAFETY
@@ -47,5 +47,5 @@ def _launch_with_exec():
         os.execv(sys.executable, [sys.executable, "-m", "axiestudio.__main__"] + sys.argv[1:])  # noqa: S606
     except OSError as e:
         # If exec fails, we need to exit since the process replacement failed
-        typer.echo(f"Failed to exec langflow: {e}", file=sys.stderr)
+        typer.echo(f"Failed to exec axiestudio: {e}", file=sys.stderr)
         sys.exit(1)

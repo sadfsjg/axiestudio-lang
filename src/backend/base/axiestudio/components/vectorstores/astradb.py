@@ -1140,7 +1140,7 @@ class AstraDBVectorStoreComponent(LCVectorStoreComponent):
                 # Hybrid Search Parameters
                 hybrid_search=hybrid_search_mode,
                 # Astra DB Usage Tracking Parameters
-                ext_callers=[(f"{axiestudio_prefix}langflow", __version__)],
+                ext_callers=[(f"{axiestudio_prefix}axiestudio", __version__)],
                 # Astra DB Vector Store Parameters
                 **autodetect_params,
                 **embedding_params,

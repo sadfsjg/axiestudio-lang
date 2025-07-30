@@ -206,7 +206,7 @@ def get_lifespan(*, fix_migration=False, version=None):
         except asyncio.CancelledError:
             logger.debug("Lifespan received cancellation signal")
         except Exception as exc:
-            if "langflow migration --fix" not in str(exc):
+            if "axiestudio migration --fix" not in str(exc):
                 logger.exception(exc)
             raise
         finally:

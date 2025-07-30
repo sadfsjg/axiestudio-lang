@@ -40,7 +40,7 @@ async def update_components_with_user_data(
     return components
 
 
-# Get the latest released version of langflow (https://pypi.org/project/axiestudio/)
+# Get the latest released version of axiestudio (https://pypi.org/project/axiestudio/)
 async def get_lf_version_from_pypi():
     try:
         async with httpx.AsyncClient() as client:
@@ -49,7 +49,7 @@ async def get_lf_version_from_pypi():
             return None
         return response.json()["info"]["version"]
     except Exception:  # noqa: BLE001
-        logger.opt(exception=True).debug("Error getting the latest version of langflow from PyPI")
+        logger.opt(exception=True).debug("Error getting the latest version of axiestudio from PyPI")
         return None
 
 

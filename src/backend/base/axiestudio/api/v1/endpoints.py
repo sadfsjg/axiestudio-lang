@@ -647,7 +647,7 @@ async def create_upload_file(
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-# get endpoint to return version of langflow
+# get endpoint to return version of axiestudio
 @router.get("/version")
 async def get_version():
     return get_version_info()

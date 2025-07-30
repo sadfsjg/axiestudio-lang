@@ -34,5 +34,11 @@ services:
     value: "7860"
   - key: PORT
     value: "7860"
+  - key: AXIESTUDIO_CACHE_TYPE
+    value: "simple"
+  - key: AXIESTUDIO_LOG_LEVEL
+    value: "info"
+  - key: AXIESTUDIO_WORKERS
+    value: "1"
 
 

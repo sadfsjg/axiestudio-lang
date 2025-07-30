@@ -49,7 +49,7 @@ class DatabaseService(Service):
         self._sanitize_database_url()
 
         # This file is in axiestudio.services.database.manager.py
-        # the ini is in langflow
+        # the ini is in axiestudio
         axiestudio_dir = Path(__file__).parent.parent.parent
         self.script_location = axiestudio_dir / "alembic"
         self.alembic_cfg_path = axiestudio_dir / "alembic.ini"

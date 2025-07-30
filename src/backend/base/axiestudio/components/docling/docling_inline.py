@@ -83,7 +83,7 @@ class DoclingInlineComponent(BaseFileComponent):
         except ImportError as e:
             msg = (
                 "Docling is not installed. Please install it with `uv pip install docling` or"
-                " `uv pip install langflow[docling]`."
+                " `uv pip install axiestudio[docling]`."
             )
             raise ImportError(msg) from e
 

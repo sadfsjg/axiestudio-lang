@@ -44,7 +44,7 @@ class Data(BaseModel):
         if not isinstance(values["data"], dict):
             msg = (
                 f"Invalid data format: expected dictionary but got {type(values).__name__}."
-                " This will raise an error in version langflow==1.3.0."
+                " This will raise an error in version axiestudio==1.3.0."
             )
             logger.warning(msg)
         # Any other keyword should be added to the data dictionary
