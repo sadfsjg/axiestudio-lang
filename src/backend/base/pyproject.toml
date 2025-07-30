@@ -130,6 +130,11 @@ dependencies = [
     "langchain-astradb>=0.1.0",
     "e2b-code-interpreter>=0.1.0",
     "pytube>=15.0.0",
+    "mem0>=0.1.0",
+    "docling-core>=0.1.0",
+    "google-cloud-bigquery>=0.1.0",
+    "elasticsearch>=8.0.0",
+    "youtube-transcript-api>=0.6.0",
 
 
 ]
