@@ -32,13 +32,17 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the actual working package directory
-COPY src/backend/base/ /app/
-COPY src/frontend/ /app/src/frontend/
+# Copy the package configuration files first
+COPY src/backend/base/pyproject.toml /app/
+COPY src/backend/base/uv.lock /app/
 
-# Install Python dependencies from the base package
+# Install Python dependencies first (without the project)
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable
+
+# Now copy the actual package code
+COPY src/backend/base/axiestudio/ /app/axiestudio/
+COPY src/frontend/ /app/src/frontend/
 
 # Build frontend
 WORKDIR /app/src/frontend
@@ -47,10 +51,10 @@ RUN --mount=type=cache,target=/root/.npm \
     && npm run build \
     && cp -r build /app/axiestudio/frontend
 
-# Install the project with PostgreSQL support
+# Install the project itself (now that the package code is in place)
 WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-editable
+    uv sync --frozen
 
 # Install PostgreSQL dependencies for database connectivity
 RUN --mount=type=cache,target=/root/.cache/uv \
