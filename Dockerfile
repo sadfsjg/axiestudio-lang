@@ -29,22 +29,18 @@ RUN apt-get update \
 # Install UV for dependency export only
 RUN pip install uv
 
-# Copy the package configuration files and source code
-COPY src/backend/base/pyproject.toml /app/
-COPY src/backend/base/uv.lock /app/
-COPY src/backend/base/README.md /app/
-COPY src/backend/base/axiestudio/ /app/axiestudio/
+# Copy the workspace configuration and both packages
+COPY pyproject.toml /app/
+COPY uv.lock /app/
+COPY src/backend/base/ /app/src/backend/base/
+COPY src/backend/axiestudio/ /app/src/backend/axiestudio/
 
 # Create virtual environment
 RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Export dependencies from uv.lock to requirements.txt and install with pip
-RUN uv export --no-dev --no-hashes > requirements.txt && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Install the local package in editable mode
-RUN pip install --no-cache-dir -e .
+# Install the workspace packages using UV
+RUN uv sync --frozen --no-dev
 
 # Copy frontend files
 COPY src/frontend/ /app/src/frontend/
