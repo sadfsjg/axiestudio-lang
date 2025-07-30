@@ -48,8 +48,8 @@ RUN npm ci \
 
 WORKDIR /app
 
-# Install the root package with entry points (like original Langflow)
-RUN uv pip install --editable .[postgresql]
+# Install the backend package with entry points (like original Langflow)
+RUN cd src/backend/base && uv pip install --editable .[postgresql]
 
 ################################
 # RUNTIME
@@ -67,6 +67,9 @@ RUN apt-get update \
     && useradd user -u 1000 -g 0 --no-create-home --home-dir /app/data
 
 COPY --from=builder --chown=1000 /app/.venv /app/.venv
+
+# Copy source code to runtime (needed for the package to work)
+COPY --from=builder --chown=1000 /app/src /app/src
 
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
