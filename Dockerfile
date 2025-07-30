@@ -32,16 +32,11 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy all necessary files for dependency resolution
-COPY uv.lock pyproject.toml ./
-COPY src/backend/base/README.md src/backend/base/README.md
-COPY src/backend/base/uv.lock src/backend/base/uv.lock
-COPY src/backend/base/pyproject.toml src/backend/base/pyproject.toml
+# Copy the actual working package directory
+COPY src/backend/base/ /app/
+COPY src/frontend/ /app/src/frontend/
 
-# Copy source code (needed for package discovery)
-COPY ./src /app/src
-
-# Install Python dependencies
+# Install Python dependencies from the base package
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable
 
@@ -50,7 +45,7 @@ WORKDIR /app/src/frontend
 RUN --mount=type=cache,target=/root/.npm \
     npm ci \
     && npm run build \
-    && cp -r build /app/src/backend/axiestudio/frontend
+    && cp -r build /app/axiestudio/frontend
 
 # Install the project with PostgreSQL support
 WORKDIR /app
