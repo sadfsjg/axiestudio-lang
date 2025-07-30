@@ -1,13 +1,12 @@
 # syntax=docker/dockerfile:1
-# Keep this syntax directive! It's used to enable Docker BuildKit
+# Dockerfile for DigitalOcean App Platform deployment
+# Axie Studio - Complete Application Build
 
 ################################
 # BUILDER-BASE
 # Used to build deps + create our virtual environment
 ################################
 
-# 1. use python:3.12.3-slim as the base image until https://github.com/pydantic/pydantic-core/issues/1292 gets resolved
-# 2. do not add --platform=$BUILDPLATFORM because the pydantic binaries must be resolved for the final architecture
 # Use a Python image with uv pre-installed
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
 
@@ -33,16 +32,20 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy dependency files
+COPY uv.lock pyproject.toml ./
+COPY src/backend/base/README.md src/backend/base/README.md
+COPY src/backend/base/uv.lock src/backend/base/uv.lock
+COPY src/backend/base/pyproject.toml src/backend/base/pyproject.toml
+
+# Install Python dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    --mount=type=bind,source=src/backend/base/README.md,target=src/backend/base/README.md \
-    --mount=type=bind,source=src/backend/base/uv.lock,target=src/backend/base/uv.lock \
-    --mount=type=bind,source=src/backend/base/pyproject.toml,target=src/backend/base/pyproject.toml \
     uv sync --frozen --no-install-project --no-editable --extra postgresql
 
+# Copy source code
 COPY ./src /app/src
 
+# Build frontend
 COPY src/frontend /tmp/src/frontend
 WORKDIR /tmp/src/frontend
 RUN --mount=type=cache,target=/root/.npm \
@@ -51,10 +54,10 @@ RUN --mount=type=cache,target=/root/.npm \
     && cp -r build /app/src/backend/axiestudio/frontend \
     && rm -rf /tmp/src/frontend
 
+# Install the project
 WORKDIR /app
 COPY ./pyproject.toml /app/pyproject.toml
 COPY ./uv.lock /app/uv.lock
-# README.md removed for clean deployment
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-editable --extra postgresql
@@ -79,6 +82,7 @@ COPY --from=builder --chown=1000 /app/.venv /app/.venv
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
+# Labels for container metadata
 LABEL org.opencontainers.image.title=axiestudio
 LABEL org.opencontainers.image.authors=['Axie Studio']
 LABEL org.opencontainers.image.licenses=MIT
@@ -88,7 +92,12 @@ LABEL org.opencontainers.image.source=https://github.com/OGGsd/properaxiestudio
 USER user
 WORKDIR /app
 
+# Environment variables for Axie Studio
 ENV AXIESTUDIO_HOST=0.0.0.0
 ENV AXIESTUDIO_PORT=7860
 
+# Expose the port
+EXPOSE 7860
+
+# Start the application
 CMD ["axiestudio", "run"]
