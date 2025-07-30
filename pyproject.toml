@@ -18,6 +18,9 @@ maintainers = [
 # This is a workspace root - no dependencies needed here
 dependencies = []
 
+[project.scripts]
+axiestudio = "axiestudio.__main__:main"
+
 [dependency-groups]
 dev = [
     "pytest-instafail>=0.5.0",

@@ -48,7 +48,7 @@ RUN npm ci \
 
 WORKDIR /app
 
-# Install the project with entry points (like original Langflow)
+# Install the root package with entry points (like original Langflow)
 RUN uv pip install --editable .[postgresql]
 
 ################################
