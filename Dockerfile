@@ -33,7 +33,6 @@ RUN pip install uv
 COPY pyproject.toml /app/
 COPY uv.lock /app/
 COPY src/backend/base/ /app/src/backend/base/
-COPY src/backend/axiestudio/ /app/src/backend/axiestudio/
 
 # Create virtual environment
 RUN python -m venv /app/.venv
