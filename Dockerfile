@@ -3,95 +3,79 @@
 # Axie Studio - Complete Application Build
 
 ################################
-# BUILDER-BASE
-# Used to build deps + create our virtual environment
+# BUILDER STAGE
 ################################
-
-# Use standard Python image
 FROM python:3.12.3-slim AS builder
 
-# Install the project into `/app`
 WORKDIR /app
 
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install --no-install-recommends -y \
-    # deps for building python deps
+# Install system dependencies
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     build-essential \
     git \
-    # npm
     npm \
-    # gcc
     gcc \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install UV for dependency export only
+# Install UV for dependency management
 RUN pip install uv
 
-# Copy the workspace configuration and both packages
-COPY pyproject.toml /app/
-COPY uv.lock /app/
-COPY src/backend/base/ /app/src/backend/base/
+# Copy entire project (adjust .dockerignore to skip unnecessary files)
+COPY . /app/
 
 # Create virtual environment
 RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Install the workspace packages using UV
+# Install Python dependencies (prod only)
 RUN uv sync --frozen --no-dev
-
-# Copy frontend files
-COPY src/frontend/ /app/src/frontend/
 
 # Build frontend
 WORKDIR /app/src/frontend
-RUN npm ci \
-    && npm run build \
-    && cp -r build /app/axiestudio/frontend
-
-# Return to app directory
-WORKDIR /app
-
-# Install PostgreSQL dependencies for database connectivity
-RUN pip install --no-cache-dir "sqlalchemy[postgresql_psycopg2binary]>=2.0.38,<3.0.0" "sqlalchemy[postgresql_psycopg]>=2.0.38,<3.0.0"
+RUN npm ci && npm run build && cp -r build /app/axiestudio/frontend
 
 ################################
-# RUNTIME
-# Setup user, utilities and copy the virtual environment only
+# RUNTIME STAGE
 ################################
 FROM python:3.12.3-slim AS runtime
 
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y curl git libpq5 gnupg \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && useradd user -u 1000 -g 0 --no-create-home --home-dir /app/data
+# Create non-root user and prepare app directory
+RUN useradd user -u 1000 -g 0 --no-create-home --home-dir /app \
+ && mkdir -p /app && chown -R 1000:0 /app
 
-COPY --from=builder --chown=1000 /app/.venv /app/.venv
+# Install runtime dependencies
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    git \
+    curl \
+    libpq5 \
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Place executables in the environment at the front of the path
+# Copy virtual environment from builder
+COPY --from=builder --chown=1000:0 /app/.venv /app/.venv
+
+# Set environment path
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Labels for container metadata
-LABEL org.opencontainers.image.title=axiestudio
-LABEL org.opencontainers.image.authors=['Axie Studio']
-LABEL org.opencontainers.image.licenses=MIT
-LABEL org.opencontainers.image.url=https://github.com/OGGsd/properaxiestudio
-LABEL org.opencontainers.image.source=https://github.com/OGGsd/properaxiestudio
+# Copy application code (including frontend build)
+COPY --from=builder --chown=1000:0 /app /app
 
+# Set labels
+LABEL org.opencontainers.image.title="axiestudio"
+LABEL org.opencontainers.image.authors='Axie Studio'
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.url="https://github.com/OGGsd/properaxiestudio"
+LABEL org.opencontainers.image.source="https://github.com/OGGsd/properaxiestudio"
+
+# Switch to non-root user
 USER user
 WORKDIR /app
 
-# Environment variables for Axie Studio
+# App env
 ENV AXIESTUDIO_HOST=0.0.0.0
 ENV AXIESTUDIO_PORT=7860
 
-# Expose the port
+# Expose port
 EXPOSE 7860
 
-# Start the application
+# Launch the app
 CMD ["axiestudio", "run"]
