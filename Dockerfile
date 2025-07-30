@@ -35,15 +35,12 @@ RUN apt-get update \
 # Copy the package configuration files and source code
 COPY src/backend/base/pyproject.toml /app/
 COPY src/backend/base/uv.lock /app/
+COPY src/backend/base/README.md /app/
 COPY src/backend/base/axiestudio/ /app/axiestudio/
 
-# Install Python dependencies first (without the local package)
+# Install all dependencies including the local package
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-install-project
-
-# Install the local package in editable mode
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv pip install -e .
+    uv sync --frozen
 
 # Copy frontend files
 COPY src/frontend/ /app/src/frontend/
