@@ -7,17 +7,11 @@
 # Used to build deps + create our virtual environment
 ################################
 
-# Use a Python image with uv pre-installed
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
+# Use standard Python image
+FROM python:3.12.3-slim AS builder
 
 # Install the project into `/app`
 WORKDIR /app
-
-# Enable bytecode compilation
-ENV UV_COMPILE_BYTECODE=1
-
-# Copy from the cache instead of linking since it's a mounted volume
-ENV UV_LINK_MODE=copy
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -32,23 +26,32 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Install UV for dependency export only
+RUN pip install uv
+
 # Copy the package configuration files and source code
 COPY src/backend/base/pyproject.toml /app/
 COPY src/backend/base/uv.lock /app/
 COPY src/backend/base/README.md /app/
 COPY src/backend/base/axiestudio/ /app/axiestudio/
 
-# Install all dependencies including the local package
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen
+# Create virtual environment
+RUN python -m venv /app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
+
+# Export dependencies from uv.lock to requirements.txt and install with pip
+RUN uv export --no-dev > requirements.txt && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Install the local package in editable mode
+RUN pip install --no-cache-dir -e .
 
 # Copy frontend files
 COPY src/frontend/ /app/src/frontend/
 
 # Build frontend
 WORKDIR /app/src/frontend
-RUN --mount=type=cache,target=/root/.npm \
-    npm ci \
+RUN npm ci \
     && npm run build \
     && cp -r build /app/axiestudio/frontend
 
@@ -56,8 +59,7 @@ RUN --mount=type=cache,target=/root/.npm \
 WORKDIR /app
 
 # Install PostgreSQL dependencies for database connectivity
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv add "sqlalchemy[postgresql_psycopg2binary]>=2.0.38,<3.0.0" "sqlalchemy[postgresql_psycopg]>=2.0.38,<3.0.0"
+RUN pip install --no-cache-dir "sqlalchemy[postgresql_psycopg2binary]>=2.0.38,<3.0.0" "sqlalchemy[postgresql_psycopg]>=2.0.38,<3.0.0"
 
 ################################
 # RUNTIME
