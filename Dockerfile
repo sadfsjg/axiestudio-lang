@@ -42,14 +42,14 @@ COPY ./src /app/src
 COPY src/frontend /tmp/src/frontend
 WORKDIR /tmp/src/frontend
 RUN npm ci \
-    && npm run build \
+    && NODE_OPTIONS="--max-old-space-size=4096" npm run build \
     && cp -r build /app/src/backend/base/axiestudio/frontend \
     && rm -rf /tmp/src/frontend
 
 WORKDIR /app
 
 # Install the project with entry points
-RUN uv pip install --editable . --extra postgresql
+RUN uv pip install --editable .[postgresql]
 
 ################################
 # RUNTIME
@@ -79,7 +79,7 @@ COPY --from=builder --chown=1000 /app/src/backend/base/pyproject.toml /app/src/b
 COPY --from=builder --chown=1000 /app/src/backend/base/uv.lock /app/src/backend/base/uv.lock
 
 # Install the package in the runtime environment
-RUN /app/.venv/bin/uv pip install --editable . --extra postgresql
+RUN /app/.venv/bin/uv pip install --editable .[postgresql]
 
 LABEL org.opencontainers.image.title=axiestudio
 LABEL org.opencontainers.image.authors=['Axie Studio']
