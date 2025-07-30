@@ -37,9 +37,13 @@ COPY src/backend/base/pyproject.toml /app/
 COPY src/backend/base/uv.lock /app/
 COPY src/backend/base/axiestudio/ /app/axiestudio/
 
-# Install Python dependencies (including the project)
+# Install Python dependencies first (without the local package)
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen
+    uv sync --frozen --no-install-project
+
+# Install the local package in editable mode
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install -e .
 
 # Copy frontend files
 COPY src/frontend/ /app/src/frontend/
@@ -51,10 +55,8 @@ RUN --mount=type=cache,target=/root/.npm \
     && npm run build \
     && cp -r build /app/axiestudio/frontend
 
-# Install the project itself (now that the package code is in place)
+# Return to app directory
 WORKDIR /app
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen
 
 # Install PostgreSQL dependencies for database connectivity
 RUN --mount=type=cache,target=/root/.cache/uv \
