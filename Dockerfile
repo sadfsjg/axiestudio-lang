@@ -28,7 +28,15 @@ ENV PATH="/app/.venv/bin:$PATH"
 WORKDIR /app/src/backend/base
 RUN pip install --upgrade pip && \
     pip install -e . && \
-    pip install openai>=1.0.0 redis>=5.0.0 celery>=5.3.0 flower>=2.0.0 webrtcvad>=2.0.10
+    pip install openai>=1.0.0 redis>=5.0.0 celery>=5.3.0 flower>=2.0.0 webrtcvad>=2.0.10 && \
+    pip install langchain-openai langchain-community langchain-core langchainhub && \
+    pip install beautifulsoup4 cohere apify-client && \
+    pip install langchain-ollama langchain-mistralai langchain-sambanova && \
+    pip install langchain-unstructured langchain-nvidia-ai-endpoints && \
+    pip install tiktoken cleanlab-tlm astra-assistants metaphor-python && \
+    pip install litellm gitpython google-api-python-client && \
+    pip install yfinance googleapiclient twelvelabs astrapy && \
+    pip install toml composio mem0
 
 # Build frontend
 WORKDIR /app/src/frontend
