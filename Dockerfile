@@ -27,12 +27,12 @@ COPY . /app/
 RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Install Python dependencies (prod only)
-RUN uv sync --frozen --no-dev
+# Install Python dependencies (prod only) - with explicit package path
+RUN uv sync --frozen --no-dev --package src/backend/base
 
 # Build frontend
 WORKDIR /app/src/frontend
-RUN npm ci && npm run build && cp -r build /app/axiestudio/frontend
+RUN npm ci && npm run build && cp -r build /app/src/backend/base/axiestudio/frontend
 
 ################################
 # RUNTIME STAGE
