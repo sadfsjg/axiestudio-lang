@@ -252,4 +252,5 @@ all = [
 ]
 
 [project.scripts]
+axiestudio = "axiestudio.__main__:main"
 axiestudio-base = "axiestudio.__main__:main"
