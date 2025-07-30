@@ -40,7 +40,7 @@ COPY src/backend/base/pyproject.toml src/backend/base/pyproject.toml
 
 # Install Python dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-install-project --no-editable --extra postgresql
+    uv sync --frozen --no-install-project --no-editable
 
 # Copy source code
 COPY ./src /app/src
@@ -60,7 +60,11 @@ COPY ./pyproject.toml /app/pyproject.toml
 COPY ./uv.lock /app/uv.lock
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-editable --extra postgresql
+    uv sync --frozen --no-editable
+
+# Install PostgreSQL dependencies for database connectivity
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv add "sqlalchemy[postgresql_psycopg2binary]>=2.0.38,<3.0.0" "sqlalchemy[postgresql_psycopg]>=2.0.38,<3.0.0"
 
 ################################
 # RUNTIME
