@@ -32,6 +32,7 @@ RUN cd src/backend/base && uv sync --frozen --no-dev
 
 # Build frontend
 WORKDIR /app/src/frontend
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm ci && npm run build && cp -r build /app/src/backend/base/axiestudio/frontend
 
 ################################
