@@ -123,7 +123,7 @@ dependencies = [
     "openinference-instrumentation-langchain>=0.1.0",
     "langwatch>=0.1.0",
     "opik>=0.1.0",
-    "nv-ingest-client>=0.1.0",
+
 
 ]
 
@@ -268,8 +268,35 @@ Documentation = "https://docs.axiestudio.org"
 
 # Optional dependencies for uv
 [project.optional-dependencies]
+docling = [
+    "docling>=2.36.1",
+]
+
 audio = [
     "webrtcvad>=2.0.10",
+]
+
+couchbase = [
+    "couchbase>=4.2.1"
+]
+
+cassio = [
+    "cassio>=0.1.7"
+]
+
+local = [
+    "llama-cpp-python~=0.2.0",
+    "sentence-transformers>=2.3.1",
+    "ctransformers>=0.2.10"
+]
+
+clickhouse-connect = [
+    "clickhouse-connect==0.7.19"
+]
+
+nv-ingest = [
+    "nv-ingest-api==2025.4.22.dev20250422",
+    "nv-ingest-client==2025.4.22.dev20250422",
 ]
 
 postgresql = [
@@ -277,15 +304,10 @@ postgresql = [
     "sqlalchemy[postgresql_psycopg]>=2.0.38,<3.0.0",
 ]
 
-local = [
-    "llama-cpp-python>=0.2.0",
-    "sentence-transformers>=2.0.0",
-    "ctransformers>=0.2"
-]
 all = [
-    "llama-cpp-python>=0.2.0",
-    "sentence-transformers>=2.0.0",
-    "ctransformers>=0.2"
+    "llama-cpp-python~=0.2.0",
+    "sentence-transformers>=2.3.1",
+    "ctransformers>=0.2.10"
 ]
 
 [project.scripts]

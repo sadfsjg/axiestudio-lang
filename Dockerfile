@@ -1,99 +1,94 @@
 # syntax=docker/dockerfile:1
-# Dockerfile for DigitalOcean App Platform deployment
-# Axie Studio - Complete Application Build
+# Keep this syntax directive! It's used to enable Docker BuildKit
 
 ################################
-# BUILDER STAGE
+# BUILDER-BASE
+# Used to build deps + create our virtual environment
 ################################
-FROM python:3.12.3-slim AS builder
 
+# 1. use python:3.12.3-slim as the base image until https://github.com/pydantic/pydantic-core/issues/1292 gets resolved
+# 2. do not add --platform=$BUILDPLATFORM because the pydantic binaries must be resolved for the final architecture
+# Use a Python image with uv pre-installed
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
+
+# Install the project into `/app`
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+# Enable bytecode compilation
+ENV UV_COMPILE_BYTECODE=1
+
+# Copy from the cache instead of linking since it's a mounted volume
+ENV UV_LINK_MODE=copy
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install --no-install-recommends -y \
+    # deps for building python deps
     build-essential \
     git \
+    # npm
     npm \
+    # gcc
     gcc \
- && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy entire project (adjust .dockerignore to skip unnecessary files)
-COPY . /app/
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=README.md,target=README.md \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    --mount=type=bind,source=src/backend/base/README.md,target=src/backend/base/README.md \
+    --mount=type=bind,source=src/backend/base/uv.lock,target=src/backend/base/uv.lock \
+    --mount=type=bind,source=src/backend/base/pyproject.toml,target=src/backend/base/pyproject.toml \
+    uv sync --frozen --no-install-project --no-editable --extra postgresql
 
-# Create virtual environment
-RUN python -m venv /app/.venv
-ENV PATH="/app/.venv/bin:$PATH"
+COPY ./src /app/src
 
-# Install Python dependencies using pip for production reliability
-WORKDIR /app/src/backend/base
-RUN pip install --upgrade pip && \
-    pip install -e . && \
-    pip install openai>=1.0.0 redis>=5.0.0 celery>=5.3.0 flower>=2.0.0 webrtcvad>=2.0.10 && \
-    pip install langchain-openai langchain-community langchain-core langchainhub && \
-    pip install beautifulsoup4 cohere apify-client && \
-    pip install langchain-ollama langchain-mistralai langchain-sambanova && \
-    pip install langchain-unstructured langchain-nvidia-ai-endpoints && \
-    pip install tiktoken cleanlab-tlm astra-assistants metaphor-python && \
-    pip install litellm gitpython && \
-    pip install yfinance twelvelabs astrapy && \
-    pip install toml composio && \
-    pip install langchain-chroma langchain-milvus metal-sdk && \
-    pip install openinference-instrumentation-langchain && \
-    pip install langwatch opik && \
-    pip install nv-ingest-client && \
-    pip cache purge
+COPY src/frontend /tmp/src/frontend
+WORKDIR /tmp/src/frontend
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci \
+    && npm run build \
+    && cp -r build /app/src/backend/base/axiestudio/frontend \
+    && rm -rf /tmp/src/frontend
 
-# Build frontend
-WORKDIR /app/src/frontend
-ENV NODE_OPTIONS="--max-old-space-size=8192"
-ENV NPM_CONFIG_CACHE="/tmp/.npm"
-RUN npm ci --no-audit --no-fund --production=false && \
-    NODE_OPTIONS="--max-old-space-size=8192" npm run build && \
-    cp -r build /app/src/backend/base/axiestudio/frontend && \
-    npm cache clean --force
+WORKDIR /app
+COPY ./pyproject.toml /app/pyproject.toml
+COPY ./uv.lock /app/uv.lock
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-editable --extra postgresql
 
 ################################
-# RUNTIME STAGE
+# RUNTIME
+# Setup user, utilities and copy the virtual environment only
 ################################
 FROM python:3.12.3-slim AS runtime
 
-WORKDIR /app
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y curl git libpq5 gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd user -u 1000 -g 0 --no-create-home --home-dir /app/data
 
-# Install runtime dependencies only
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    ffmpeg \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY --from=builder --chown=1000 /app/.venv /app/.venv
 
-# Copy virtual environment from builder
-COPY --from=builder /app/.venv /app/.venv
+# Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Copy application code
-COPY --from=builder /app/src/backend/base /app/src/backend/base
-COPY --from=builder /app/src/backend/base/axiestudio/frontend /app/src/backend/base/axiestudio/frontend
-COPY --from=builder /app/src/frontend/src/assets /app/src/backend/base/axiestudio/frontend/assets
+LABEL org.opencontainers.image.title=axiestudio
+LABEL org.opencontainers.image.authors=['Axie Studio']
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.url=https://github.com/axiestudio-ai/axiestudio
+LABEL org.opencontainers.image.source=https://github.com/axiestudio-ai/axiestudio
 
-# Set working directory to the base package
-WORKDIR /app/src/backend/base
+USER user
+WORKDIR /app
 
-# Create necessary directories
-RUN mkdir -p /app/src/backend/base/axiestudio/frontend
+ENV AXIESTUDIO_HOST=0.0.0.0
+ENV AXIESTUDIO_PORT=7860
 
-# Expose port
-EXPOSE 7860
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:7860/health_check || exit 1
-
-# Set environment variables
-ENV PYTHONPATH="/app/src/backend/base"
-ENV AXIESTUDIO_CONFIG_DIR="/app/config"
-ENV AXIESTUDIO_CACHE_DIR="/app/cache"
-
-# Create config and cache directories
-RUN mkdir -p /app/config /app/cache
-
-# Run the application
-CMD ["axiestudio", "run", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["axiestudio", "run"]
