@@ -6,8 +6,6 @@
 # Used to build deps + create our virtual environment
 ################################
 
-# 1. use python:3.12.3-slim as the base image until https://github.com/pydantic/pydantic-core/issues/1292 gets resolved
-# 2. do not add --platform=$BUILDPLATFORM because the pydantic binaries must be resolved for the final architecture
 # Use a Python image with uv pre-installed
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
 
@@ -23,41 +21,35 @@ ENV UV_LINK_MODE=copy
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install --no-install-recommends -y \
-    # deps for building python deps
     build-essential \
     git \
-    # npm
     npm \
-    # gcc
     gcc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN --mount=type=cache,id=cache-uv,target=/root/.cache/uv \
-    --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=bind,source=README.md,target=README.md \
-    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    --mount=type=bind,source=src/backend/base/README.md,target=src/backend/base/README.md \
-    --mount=type=bind,source=src/backend/base/uv.lock,target=src/backend/base/uv.lock \
-    --mount=type=bind,source=src/backend/base/pyproject.toml,target=src/backend/base/pyproject.toml \
-    uv sync --frozen --no-install-project --no-editable --extra postgresql
+# Copy dependency files first for better caching
+COPY uv.lock pyproject.toml README.md ./
+COPY src/backend/base/uv.lock src/backend/base/pyproject.toml src/backend/base/README.md ./src/backend/base/
 
+# Install Python dependencies
+RUN uv sync --frozen --no-install-project --no-editable --extra postgresql
+
+# Copy source code
 COPY ./src /app/src
 
+# Build frontend
 COPY src/frontend /tmp/src/frontend
 WORKDIR /tmp/src/frontend
-RUN --mount=type=cache,id=cache-npm,target=/root/.npm \
-    npm ci \
+RUN npm ci \
     && npm run build \
     && cp -r build /app/src/backend/base/axiestudio/frontend \
     && rm -rf /tmp/src/frontend
 
 WORKDIR /app
-COPY ./pyproject.toml /app/pyproject.toml
-COPY ./uv.lock /app/uv.lock
 
-RUN --mount=type=cache,id=cache-uv,target=/root/.cache/uv \
-    uv sync --frozen --no-editable --extra postgresql
+# Final dependency sync
+RUN uv sync --frozen --no-editable --extra postgresql
 
 ################################
 # RUNTIME
