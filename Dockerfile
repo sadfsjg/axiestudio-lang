@@ -74,6 +74,10 @@ COPY --from=builder --chown=1000 /app/src /app/src
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:7860/health || exit 1
+
 LABEL org.opencontainers.image.title=axiestudio
 LABEL org.opencontainers.image.authors=['Axie Studio']
 LABEL org.opencontainers.image.licenses=MIT
