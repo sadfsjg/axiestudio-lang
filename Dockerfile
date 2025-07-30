@@ -33,7 +33,7 @@ COPY uv.lock pyproject.toml ./
 COPY src/backend/base/uv.lock src/backend/base/pyproject.toml ./src/backend/base/
 
 # Install Python dependencies
-RUN uv sync --frozen --no-install-project --no-editable --extra postgresql
+RUN uv sync --frozen --no-editable --extra postgresql
 
 # Copy source code
 COPY ./src /app/src
@@ -48,8 +48,8 @@ RUN npm ci \
 
 WORKDIR /app
 
-# Final dependency sync
-RUN uv sync --frozen --no-editable --extra postgresql
+# Install the project with entry points
+RUN uv pip install --editable . --extra postgresql
 
 ################################
 # RUNTIME
@@ -70,6 +70,16 @@ COPY --from=builder --chown=1000 /app/.venv /app/.venv
 
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
+
+# Copy the source code and install the package in runtime
+COPY --from=builder --chown=1000 /app/src /app/src
+COPY --from=builder --chown=1000 /app/pyproject.toml /app/pyproject.toml
+COPY --from=builder --chown=1000 /app/uv.lock /app/uv.lock
+COPY --from=builder --chown=1000 /app/src/backend/base/pyproject.toml /app/src/backend/base/pyproject.toml
+COPY --from=builder --chown=1000 /app/src/backend/base/uv.lock /app/src/backend/base/uv.lock
+
+# Install the package in the runtime environment
+RUN /app/.venv/bin/uv pip install --editable . --extra postgresql
 
 LABEL org.opencontainers.image.title=axiestudio
 LABEL org.opencontainers.image.authors=['Axie Studio']
