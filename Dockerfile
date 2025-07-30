@@ -32,16 +32,16 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the package configuration files first
+# Copy the package configuration files and source code
 COPY src/backend/base/pyproject.toml /app/
 COPY src/backend/base/uv.lock /app/
-
-# Install Python dependencies first (without the project)
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-install-project --no-editable
-
-# Now copy the actual package code
 COPY src/backend/base/axiestudio/ /app/axiestudio/
+
+# Install Python dependencies (including the project)
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen
+
+# Copy frontend files
 COPY src/frontend/ /app/src/frontend/
 
 # Build frontend
