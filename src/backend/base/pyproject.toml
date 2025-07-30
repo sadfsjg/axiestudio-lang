@@ -116,7 +116,6 @@ dependencies = [
     "astrapy>=0.1.0",
     "toml>=0.10.0",
     "composio>=0.1.0",
-    "mem0>=0.1.0",
     "webrtcvad>=2.0.10",
     "langchain-chroma>=0.1.0",
     "langchain-milvus>=0.1.0",
@@ -125,10 +124,7 @@ dependencies = [
     "langwatch>=0.1.0",
     "opik>=0.1.0",
     "nv-ingest-client>=0.1.0",
-    "couchbase>=4.0.0",
     "docling>=0.1.0",
-    "unstructured>=0.1.0",
-    "homeassistant>=0.1.0",
 ]
 
 [dependency-groups]

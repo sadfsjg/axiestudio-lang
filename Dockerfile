@@ -36,15 +36,12 @@ RUN pip install --upgrade pip && \
     pip install tiktoken cleanlab-tlm astra-assistants metaphor-python && \
     pip install litellm gitpython && \
     pip install yfinance twelvelabs astrapy && \
-    pip install toml composio mem0 && \
+    pip install toml composio && \
     pip install langchain-chroma langchain-milvus metal-sdk && \
     pip install openinference-instrumentation-langchain && \
     pip install langwatch opik && \
     pip install nv-ingest-client && \
-    pip install couchbase && \
     pip install docling && \
-    pip install unstructured && \
-    pip install homeassistant && \
     pip cache purge
 
 # Build frontend
