@@ -12,6 +12,7 @@ import { useCustomPrimaryLoading } from "@/customization/hooks/use-custom-primar
 import { useDarkStore } from "@/stores/darkStore";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import { LoadingPage } from "../LoadingPage";
+import { IS_AUTO_LOGIN } from "@/constants/constants";
 
 export function AppInitPage() {
   const refreshStars = useDarkStore((state) => state.refreshStars);
@@ -22,7 +23,7 @@ export function AppInitPage() {
 
   const { isFetched: isLoaded } = useCustomPrimaryLoading();
 
-  const { isFetched, refetch } = useGetAutoLogin({ enabled: isLoaded });
+  const { isFetched, refetch } = useGetAutoLogin({ enabled: isLoaded && IS_AUTO_LOGIN });
   useGetVersionQuery({ enabled: isFetched });
   const { isFetched: isConfigFetched } = useGetConfig({ enabled: isFetched });
   useGetGlobalVariables({ enabled: isFetched });

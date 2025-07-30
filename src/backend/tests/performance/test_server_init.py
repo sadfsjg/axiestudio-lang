@@ -9,7 +9,7 @@ def setup_database_url(tmp_path, monkeypatch):
     """Setup a temporary database URL for testing."""
     settings_service = get_settings_service()
     db_path = tmp_path / "test_performance.db"
-    original_value = os.getenv("LANGFLOW_DATABASE_URL")
+    original_value = os.getenv("AXIESTUDIO_DATABASE_URL")
     monkeypatch.delenv("LANGFLOW_DATABASE_URL", raising=False)
     test_db_url = f"sqlite:///{db_path}"
     monkeypatch.setenv("LANGFLOW_DATABASE_URL", test_db_url)

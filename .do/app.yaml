@@ -1,0 +1,67 @@
+name: axie-studio
+services:
+- name: axiestudio-backend
+  source_dir: /
+  github:
+    repo: YOUR_GITHUB_USERNAME/axie-studio
+    branch: main
+    deploy_on_push: true
+  run_command: axiestudio run --host 0.0.0.0 --port $PORT --backend-only
+  environment_slug: python
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 8080
+  routes:
+  - path: /api
+  - path: /health
+  - path: /health_check
+  envs:
+  - key: DO_NOT_TRACK
+    value: "true"
+  - key: AXIESTUDIO_SECRET_KEY
+    value: R2Rlc3FqTXpxWWVkUlMwU1Nxc2xxT1dZUzE0T2xPZ1VsbDJUalRpZHM=
+  - key: AXIESTUDIO_AUTO_LOGIN
+    value: "False"
+  - key: AXIESTUDIO_SUPERUSER
+    value: stefan@axiestudio.se
+  - key: AXIESTUDIO_SUPERUSER_PASSWORD
+    value: STEfanjohn!12
+  - key: AXIESTUDIO_NEW_USER_IS_ACTIVE
+    value: "True"
+  - key: DATABASE_URL
+    value: postgresql://db:AVNS_9f4U8riTaUYdwqimQRC@app-57f1a664-8c39-4f05-99bf-bcf5f51c182a-do-user-24001760-0.h.db.ondigitalocean.com:25060/db?sslmode=require
+  - key: PORT
+    value: "8080"
+
+- name: axiestudio-frontend
+  source_dir: /src/frontend
+  github:
+    repo: YOUR_GITHUB_USERNAME/axie-studio
+    branch: main
+    deploy_on_push: true
+  build_command: npm install && npm run build
+  run_command: npx serve -s build -l $PORT
+  environment_slug: node-js
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 3000
+  routes:
+  - path: /
+  envs:
+  - key: REACT_APP_BACKEND_URL
+    value: ${axiestudio-backend.PUBLIC_URL}
+  - key: PORT
+    value: "3000"
+
+static_sites:
+- name: axiestudio-static
+  source_dir: /src/frontend
+  github:
+    repo: YOUR_GITHUB_USERNAME/axie-studio
+    branch: main
+    deploy_on_push: true
+  build_command: npm install && npm run build
+  output_dir: /build
+  routes:
+  - path: /static
+  - path: /assets

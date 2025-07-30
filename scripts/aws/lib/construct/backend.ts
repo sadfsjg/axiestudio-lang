@@ -58,9 +58,9 @@ export class BackEndCluster extends Construct {
         logGroup: props.backendLogGroup,
       }),
       environment:{
-        "LANGFLOW_AUTO_LOGIN" : process.env.LANGFLOW_AUTO_LOGIN ?? 'false',
-        "LANGFLOW_SUPERUSER" : process.env.LANGFLOW_SUPERUSER ?? "admin",
-        "LANGFLOW_SUPERUSER_PASSWORD" : process.env.LANGFLOW_SUPERUSER_PASSWORD ?? "123456"
+        "AXIESTUDIO_AUTO_LOGIN" : process.env.AXIESTUDIO_AUTO_LOGIN ?? 'false',
+        "AXIESTUDIO_SUPERUSER" : process.env.AXIESTUDIO_SUPERUSER ?? "admin",
+        "AXIESTUDIO_SUPERUSER_PASSWORD" : process.env.AXIESTUDIO_SUPERUSER_PASSWORD ?? "123456"
       },
       portMappings: [
           {

@@ -693,9 +693,9 @@
     "edges": [
       {
         "source": "TextInput-eFiZp",
-        "sourceHandle": "{œdataTypeœ:œTextInputœ,œidœ:œTextInput-eFiZpœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-eFiZp\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "ChatOutput-J6aor",
-        "targetHandle": "{œfieldNameœ:œsender_nameœ,œidœ:œChatOutput-J6aorœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "targetHandle": "{\u0153fieldName\u0153:\u0153sender_name\u0153,\u0153id\u0153:\u0153ChatOutput-J6aor\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "data": {
           "targetHandle": {
             "fieldName": "sender_name",
@@ -714,13 +714,13 @@
             ]
           }
         },
-        "id": "xy-edge__TextInput-eFiZp{œdataTypeœ:œTextInputœ,œidœ:œTextInput-eFiZpœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-J6aor{œfieldNameœ:œsender_nameœ,œidœ:œChatOutput-J6aorœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "id": "xy-edge__TextInput-eFiZp{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-eFiZp\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-J6aor{\u0153fieldName\u0153:\u0153sender_name\u0153,\u0153id\u0153:\u0153ChatOutput-J6aor\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "source": "ChatInput-3OQi9",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-3OQi9œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-3OQi9\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "ChatOutput-J6aor",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-J6aorœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-J6aor\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
@@ -739,7 +739,7 @@
             ]
           }
         },
-        "id": "xy-edge__ChatInput-3OQi9{œdataTypeœ:œChatInputœ,œidœ:œChatInput-3OQi9œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-J6aor{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-J6aorœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "id": "xy-edge__ChatInput-3OQi9{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-3OQi9\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-J6aor{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-J6aor\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       }
     ],
     "viewport": {

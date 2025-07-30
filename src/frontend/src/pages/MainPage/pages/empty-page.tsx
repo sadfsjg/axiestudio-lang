@@ -1,5 +1,3 @@
-import { ExternalLink } from "lucide-react";
-import { FaDiscord, FaGithub } from "react-icons/fa";
 import { useShallow } from "zustand/react/shallow";
 import logoDarkPng from "@/assets/logo_dark.png";
 import logoLightPng from "@/assets/logo_light.png";
@@ -7,27 +5,15 @@ import { ForwardedIconComponent } from "@/components/common/genericIconComponent
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
 import { Button } from "@/components/ui/button";
 import { DotBackgroundDemo } from "@/components/ui/dot-background";
-import { DISCORD_URL, GITHUB_URL } from "@/constants/constants";
-import { useGetUserData, useUpdateUser } from "@/controllers/API/queries/auth";
-import useAuthStore from "@/stores/authStore";
-import { useDarkStore } from "@/stores/darkStore";
 import { useFolderStore } from "@/stores/foldersStore";
-import { formatNumber } from "@/utils/utils";
 import useFileDrop from "../hooks/use-on-file-drop";
 
-const EMPTY_PAGE_TITLE = "Welcome to Langflow";
+const EMPTY_PAGE_TITLE = "Welcome to Axie Studio";
 const EMPTY_PAGE_DESCRIPTION = "Your new favorite way to ship Agents";
-const EMPTY_PAGE_GITHUB_DESCRIPTION =
-  "Follow development, star the repo, and shape the future.";
-const EMPTY_PAGE_DISCORD_DESCRIPTION =
-  "Join builders, ask questions, and show off your agents";
 const EMPTY_PAGE_DRAG_AND_DROP_TEXT =
   "Already have a flow? Drag and drop to upload.";
 const EMPTY_PAGE_FOLDER_DESCRIPTION = "Empty folder";
 const EMPTY_PAGE_CREATE_FIRST_FLOW_BUTTON_TEXT = "Create first flow";
-
-const EXTERNAL_LINK_ICON_CLASS =
-  "absolute right-6 top-[35px] h-4 w-4 shrink-0 translate-x-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100";
 
 export const EmptyPageCommunity = ({
   setOpenModal,
@@ -36,27 +22,6 @@ export const EmptyPageCommunity = ({
 }) => {
   const handleFileDrop = useFileDrop(undefined);
   const folders = useFolderStore((state) => state.folders);
-  const userData = useAuthStore(useShallow((state) => state.userData));
-  const stars: number | undefined = useDarkStore((state) => state.stars);
-  const discordCount: number = useDarkStore((state) => state.discordCount);
-  const { mutate: updateUser } = useUpdateUser();
-  const { mutate: mutateLoggedUser } = useGetUserData();
-
-  const handleUserTrack = (key: string) => () => {
-    const optins = userData?.optins ?? {};
-    optins[key] = true;
-    updateUser(
-      {
-        user_id: userData?.id!,
-        user: { optins },
-      },
-      {
-        onSuccess: () => {
-          mutateLoggedUser({});
-        },
-      },
-    );
-  };
 
   return (
     <DotBackgroundDemo>
@@ -70,7 +35,7 @@ export const EmptyPageCommunity = ({
               <div className="z-50 dark:hidden">
                 <img
                   src={logoLightPng}
-                  alt="Langflow Logo Light"
+                  alt="Axie Studio Logo Light"
                   data-testid="empty_page_logo_light"
                   className="relative top-3"
                 />
@@ -78,7 +43,7 @@ export const EmptyPageCommunity = ({
               <div className="z-50 hidden dark:block">
                 <img
                   src={logoDarkPng}
-                  alt="Langflow Logo Dark"
+                  alt="Axie Studio Logo Dark"
                   data-testid="empty_page_logo_dark"
                   className="relative top-3"
                 />
@@ -102,62 +67,46 @@ export const EmptyPageCommunity = ({
 
             <div className="flex w-full max-w-[510px] flex-col gap-7 sm:gap-[29px]">
               <Button
-                unstyled
                 className="group mx-3 h-[84px] sm:mx-0"
-                onClick={() => {
-                  handleUserTrack("github_starred")();
-                  window.open(GITHUB_URL, "_blank", "noopener,noreferrer");
-                }}
-                data-testid="empty_page_github_button"
+                onClick={() => setOpenModal(true)}
+                data-testid="empty_page_create_flow_button"
               >
                 <div className="relative flex flex-col rounded-lg border-[1px] bg-background p-4 transition-all duration-300 hover:border-accent-pink-foreground">
                   <div className="grid w-full items-center justify-between gap-2">
                     <div className="flex gap-3">
-                      <FaGithub className="h-6 w-6" />
+                      <ForwardedIconComponent name="Plus" className="h-6 w-6" />
                       <div>
-                        <span className="font-semibold">GitHub</span>
-                        <span className="ml-2 font-mono text-muted-foreground">
-                          {formatNumber(stars)}
-                        </span>
+                        <span className="font-semibold">Create New Flow</span>
                       </div>
                     </div>
                     <div>
                       <span className="text-base text-secondary-foreground">
-                        {EMPTY_PAGE_GITHUB_DESCRIPTION}
+                        Start building your AI application with Axie Studio
                       </span>
                     </div>
                   </div>
-                  <ExternalLink className={EXTERNAL_LINK_ICON_CLASS} />
                 </div>
               </Button>
 
               <Button
-                unstyled
                 className="group mx-3 h-[84px] sm:mx-0"
-                onClick={() => {
-                  handleUserTrack("discord_clicked")();
-                  window.open(DISCORD_URL, "_blank", "noopener,noreferrer");
-                }}
-                data-testid="empty_page_discord_button"
+                onClick={() => window.open("https://www.axiestudio.se", "_blank", "noopener,noreferrer")}
+                data-testid="empty_page_documentation_button"
               >
-                <div className="relative flex flex-col rounded-lg border-[1px] bg-background p-4 transition-all duration-300 hover:border-discord-color">
+                <div className="relative flex flex-col rounded-lg border-[1px] bg-background p-4 transition-all duration-300 hover:border-accent-pink-foreground">
                   <div className="grid w-full items-center justify-between gap-2">
                     <div className="flex gap-3">
-                      <FaDiscord className="h-6 w-6 text-discord-color" />
+                      <ForwardedIconComponent name="BookOpen" className="h-6 w-6" />
                       <div>
-                        <span className="font-semibold">Discord</span>
-                        <span className="ml-2 font-mono text-muted-foreground">
-                          {formatNumber(discordCount)}
-                        </span>
+                        <span className="font-semibold">Documentation</span>
                       </div>
                     </div>
                     <div>
                       <span className="text-base text-secondary-foreground">
-                        {EMPTY_PAGE_DISCORD_DESCRIPTION}
+                        Learn how to build powerful AI applications
                       </span>
                     </div>
                   </div>
-                  <ExternalLink className={EXTERNAL_LINK_ICON_CLASS} />
                 </div>
               </Button>
 

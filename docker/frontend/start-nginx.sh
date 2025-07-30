@@ -15,7 +15,7 @@ fi
 if [ -z "$FRONTEND_PORT" ]; then
   FRONTEND_PORT="80"
 fi
-if [ -z "$LANGFLOW_MAX_FILE_SIZE_UPLOAD" ]; then
+if [ -z "$AXIEFLOW_MAX_FILE_SIZE_UPLOAD" ]; then
   LANGFLOW_MAX_FILE_SIZE_UPLOAD="1"
 fi
 if [ -z "$BACKEND_URL" ]; then
@@ -27,7 +27,7 @@ fi
 export BACKEND_URL FRONTEND_PORT LANGFLOW_MAX_FILE_SIZE_UPLOAD
 
 # Use envsubst to substitute environment variables in the template
-envsubst '${BACKEND_URL} ${FRONTEND_PORT} ${LANGFLOW_MAX_FILE_SIZE_UPLOAD}' < /etc/nginx/conf.d/default.conf.template > $CONFIG_DIR/default.conf
+envsubst '${BACKEND_URL} ${FRONTEND_PORT} ${AXIEFLOW_MAX_FILE_SIZE_UPLOAD}' < /etc/nginx/conf.d/default.conf.template > $CONFIG_DIR/default.conf
 
 # Start nginx with the new configuration
 exec nginx -c $CONFIG_DIR/default.conf -g 'daemon off;'

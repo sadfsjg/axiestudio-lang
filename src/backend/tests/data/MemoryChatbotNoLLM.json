@@ -24,12 +24,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__Memory-8X8Cq{œdataTypeœ:œMemoryœ,œidœ:œMemory-8X8Cqœ,œnameœ:œdataframeœ,œoutput_typesœ:[œDataFrameœ]}-TypeConverterComponent-koSIz{œfieldNameœ:œinput_dataœ,œidœ:œTypeConverterComponent-koSIzœ,œinputTypesœ:[œMessageœ,œDataœ,œDataFrameœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__Memory-8X8Cq{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-8X8Cq\u0153,\u0153name\u0153:\u0153dataframe\u0153,\u0153output_types\u0153:[\u0153DataFrame\u0153]}-TypeConverterComponent-koSIz{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153TypeConverterComponent-koSIz\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Data\u0153,\u0153DataFrame\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "Memory-8X8Cq",
-        "sourceHandle": "{œdataTypeœ:œMemoryœ,œidœ:œMemory-8X8Cqœ,œnameœ:œdataframeœ,œoutput_typesœ:[œDataFrameœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-8X8Cq\u0153,\u0153name\u0153:\u0153dataframe\u0153,\u0153output_types\u0153:[\u0153DataFrame\u0153]}",
         "target": "TypeConverterComponent-koSIz",
-        "targetHandle": "{œfieldNameœ:œinput_dataœ,œidœ:œTypeConverterComponent-koSIzœ,œinputTypesœ:[œMessageœ,œDataœ,œDataFrameœ],œtypeœ:œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_data\u0153,\u0153id\u0153:\u0153TypeConverterComponent-koSIz\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Data\u0153,\u0153DataFrame\u0153],\u0153type\u0153:\u0153other\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__TypeConverterComponent-koSIz{œdataTypeœ:œTypeConverterComponentœ,œidœ:œTypeConverterComponent-koSIzœ,œnameœ:œmessage_outputœ,œoutput_typesœ:[œMessageœ]}-Prompt-VSSGR{œfieldNameœ:œcontextœ,œidœ:œPrompt-VSSGRœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__TypeConverterComponent-koSIz{\u0153dataType\u0153:\u0153TypeConverterComponent\u0153,\u0153id\u0153:\u0153TypeConverterComponent-koSIz\u0153,\u0153name\u0153:\u0153message_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-VSSGR{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TypeConverterComponent-koSIz",
-        "sourceHandle": "{œdataTypeœ:œTypeConverterComponentœ,œidœ:œTypeConverterComponent-koSIzœ,œnameœ:œmessage_outputœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153TypeConverterComponent\u0153,\u0153id\u0153:\u0153TypeConverterComponent-koSIz\u0153,\u0153name\u0153:\u0153message_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "Prompt-VSSGR",
-        "targetHandle": "{œfieldNameœ:œcontextœ,œidœ:œPrompt-VSSGRœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -80,12 +80,12 @@
             "type": "str"
           }
         },
-        "id": "xy-edge__ChatInput-vsgM1{œdataTypeœ:œChatInputœ,œidœ:œChatInput-vsgM1œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-VSSGR{œfieldNameœ:œuser_messageœ,œidœ:œPrompt-VSSGRœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ChatInput-vsgM1{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-vsgM1\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-VSSGR{\u0153fieldName\u0153:\u0153user_message\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-vsgM1",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-vsgM1œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-vsgM1\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "Prompt-VSSGR",
-        "targetHandle": "{œfieldNameœ:œuser_messageœ,œidœ:œPrompt-VSSGRœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153user_message\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -110,12 +110,12 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__Prompt-VSSGR{œdataTypeœ:œPromptœ,œidœ:œPrompt-VSSGRœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-NAw0P{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-NAw0Pœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__Prompt-VSSGR{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-NAw0P{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-NAw0P\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153DataFrame\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "Prompt-VSSGR",
-        "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-VSSGRœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-VSSGR\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "ChatOutput-NAw0P",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-NAw0Pœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-NAw0P\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153,\u0153DataFrame\u0153,\u0153Message\u0153],\u0153type\u0153:\u0153other\u0153}"
       }
     ],
     "nodes": [

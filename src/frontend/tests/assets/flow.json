@@ -303,7 +303,10 @@
               "_type": "initialize_agent"
             },
             "description": "Construct a zero shot agent from an LLM and tools.",
-            "base_classes": ["AgentExecutor", "function"],
+            "base_classes": [
+              "AgentExecutor",
+              "function"
+            ],
             "display_name": "AgentInitializer"
           },
           "id": "AgentInitializer-KcVTt",
@@ -367,7 +370,9 @@
               "_type": "PythonFunctionTool"
             },
             "description": "Python function to be executed.",
-            "base_classes": ["Tool"],
+            "base_classes": [
+              "Tool"
+            ],
             "display_name": "PythonFunctionTool"
           },
           "id": "PythonFunctionTool-FwZVF",

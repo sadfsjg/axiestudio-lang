@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-wk8QV{œdataTypeœ:œChatInputœ,œidœ:œChatInput-wk8QVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-1P8nP{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-1P8nPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-wk8QV{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-wk8QV\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-1P8nP{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-wk8QV",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-wk8QVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-wk8QV\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "OpenAIModel-1P8nP",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-1P8nPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -50,12 +50,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-MabiH{œdataTypeœ:œPromptœ,œidœ:œPrompt-MabiHœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-1P8nP{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-1P8nPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-MabiH{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-MabiH\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-1P8nP{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-MabiH",
-        "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-MabiHœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-MabiH\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "OpenAIModel-1P8nP",
-        "targetHandle": "{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-1P8nPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -78,12 +78,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-1P8nP{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-1P8nPœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-CleanlabEvaluator-Pfyl2{œfieldNameœ:œresponseœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-1P8nP{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-CleanlabEvaluator-Pfyl2{\u0153fieldName\u0153:\u0153response\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "OpenAIModel-1P8nP",
-        "sourceHandle": "{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-1P8nPœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-1P8nP\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "CleanlabEvaluator-Pfyl2",
-        "targetHandle": "{œfieldNameœ:œresponseœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153response\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -106,12 +106,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-MabiH{œdataTypeœ:œPromptœ,œidœ:œPrompt-MabiHœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-CleanlabEvaluator-Pfyl2{œfieldNameœ:œsystem_promptœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-MabiH{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-MabiH\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-CleanlabEvaluator-Pfyl2{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-MabiH",
-        "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-MabiHœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-MabiH\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "CleanlabEvaluator-Pfyl2",
-        "targetHandle": "{œfieldNameœ:œsystem_promptœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -134,12 +134,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-wk8QV{œdataTypeœ:œChatInputœ,œidœ:œChatInput-wk8QVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-CleanlabEvaluator-Pfyl2{œfieldNameœ:œpromptœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-wk8QV{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-wk8QV\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-CleanlabEvaluator-Pfyl2{\u0153fieldName\u0153:\u0153prompt\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-wk8QV",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-wk8QVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-wk8QV\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "CleanlabEvaluator-Pfyl2",
-        "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153prompt\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -162,12 +162,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œscoreœ,œoutput_typesœ:[œnumberœ]}-CleanlabRemediator-YB1Ss{œfieldNameœ:œscoreœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œnumberœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153score\u0153,\u0153output_types\u0153:[\u0153number\u0153]}-CleanlabRemediator-YB1Ss{\u0153fieldName\u0153:\u0153score\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153number\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "CleanlabEvaluator-Pfyl2",
-        "sourceHandle": "{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œscoreœ,œoutput_typesœ:[œnumberœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153score\u0153,\u0153output_types\u0153:[\u0153number\u0153]}",
         "target": "CleanlabRemediator-YB1Ss",
-        "targetHandle": "{œfieldNameœ:œscoreœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œnumberœ],œtypeœ:œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153score\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153number\u0153],\u0153type\u0153:\u0153other\u0153}"
       },
       {
         "animated": false,
@@ -190,12 +190,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œexplanationœ,œoutput_typesœ:[œMessageœ]}-CleanlabRemediator-YB1Ss{œfieldNameœ:œexplanationœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153explanation\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-CleanlabRemediator-YB1Ss{\u0153fieldName\u0153:\u0153explanation\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "CleanlabEvaluator-Pfyl2",
-        "sourceHandle": "{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œexplanationœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153explanation\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "CleanlabRemediator-YB1Ss",
-        "targetHandle": "{œfieldNameœ:œexplanationœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153explanation\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       },
       {
         "animated": false,
@@ -218,12 +218,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œresponse_passthroughœ,œoutput_typesœ:[œMessageœ]}-CleanlabRemediator-YB1Ss{œfieldNameœ:œresponseœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-CleanlabEvaluator-Pfyl2{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153response_passthrough\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-CleanlabRemediator-YB1Ss{\u0153fieldName\u0153:\u0153response\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "CleanlabEvaluator-Pfyl2",
-        "sourceHandle": "{œdataTypeœ:œCleanlabEvaluatorœ,œidœ:œCleanlabEvaluator-Pfyl2œ,œnameœ:œresponse_passthroughœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153CleanlabEvaluator\u0153,\u0153id\u0153:\u0153CleanlabEvaluator-Pfyl2\u0153,\u0153name\u0153:\u0153response_passthrough\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "CleanlabRemediator-YB1Ss",
-        "targetHandle": "{œfieldNameœ:œresponseœ,œidœ:œCleanlabRemediator-YB1Ssœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153:\u0153response\u0153,\u0153id\u0153:\u0153CleanlabRemediator-YB1Ss\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -1384,7 +1384,7 @@
                 "show": true,
                 "title_case": false,
                 "type": "code",
-                "value": "from langflow.custom import Component\nfrom langflow.io import (\n    MessageTextInput,\n    PromptInput,\n    Output,\n    BoolInput,\n    HandleInput,\n    FloatInput\n)\nfrom langflow.template import Input\nfrom langflow.schema.message import Message\nfrom langflow.field_typing.range_spec import RangeSpec\n\n\nclass CleanlabRemediator(Component):\n    \"\"\"\n    A component that remediates potentially untrustworthy LLM responses based on trust scores computed by the Cleanlab Evaluator.\n\n    This component takes a response and its associated trust score,\n    and applies remediation strategies based on configurable thresholds and settings.\n\n    Inputs:\n        - response (MessageTextInput): The original LLM-generated response to be evaluated and possibly remediated. The CleanlabEvaluator passes this response through.\n        - score (HandleInput): The trust score output from CleanlabEvaluator (expected to be a float between 0 and 1).\n        - explanation (MessageTextInput): Optional textual explanation for the trust score, to be included in the output.\n        - threshold (Input[float]): Minimum trust score required to accept the response. If the score is lower, the response is remediated.\n        - show_untrustworthy_response (BoolInput): If true, returns the original response with a warning; if false, returns fallback text.\n        - untrustworthy_warning_text (PromptInput): Text warning to append to responses deemed untrustworthy (when showing them).\n        - fallback_text (PromptInput): Replacement message returned if the response is untrustworthy and should be hidden.\n\n    Outputs:\n        - remediated_response (Message): Either:\n            • the original response,\n            • the original response with appended warning, or\n            • the fallback response,\n          depending on the trust score and configuration.\n\n    This component is typically used downstream of CleanlabEvaluator or CleanlabRagValidator\n    to take appropriate action on low-trust responses and inform users accordingly.\n    \"\"\"\n    \n    display_name = \"Cleanlab Remediator\"\n    description = \"Remediates an untrustworthy response based on trust score from the Cleanlab Evaluator, score threshold, and message handling settings.\"\n    icon = \"Cleanlab\"\n    name = \"CleanlabRemediator\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"response\",\n            display_name=\"Response\",\n            info=\"The response to the user's query.\",\n            required=True,\n        ),\n        HandleInput(\n            name=\"score\",\n            display_name=\"Trust Score\",\n            info=\"The trustworthiness score output from the Cleanlab Evaluator.\",\n            input_types=[\"number\"],\n            required=True,\n        ),\n        MessageTextInput(\n            name=\"explanation\",\n            display_name=\"Explanation\",\n            info=\"The explanation from the Cleanlab Evaluator.\",\n            required=False,\n        ),\n        FloatInput(\n            name=\"threshold\",\n            display_name=\"Threshold\",\n            field_type=\"float\",\n            value=0.7,\n            range_spec=RangeSpec(min=0.0, max=1.0, step=0.05),\n            info=\"Minimum score required to show the response unmodified. Reponses with scores above this threshold are considered trustworthy. Reponses with scores below this threshold are considered untrustworthy and will be remediated based on the settings below.\",\n            required=True,\n            show=True,\n        ),\n        BoolInput(\n            name=\"show_untrustworthy_response\",\n            display_name=\"Show Untrustworthy Response\",\n            info=\"If enabled, and the trust score is below the threshold, the original response is shown with the added warning. If disabled, and the trust score is below the threshold, the fallback answer is returned.\",\n            value=True,\n        ),\n        PromptInput(\n            name=\"untrustworthy_warning_text\",\n            display_name=\"Warning for Untrustworthy Response\",\n            info=\"Warning to append to the response if Show Untrustworthy Response is enabled and trust score is below the threshold.\",\n            value=\"⚠️ WARNING: The following response is potentially untrustworthy.\",\n        ),\n        PromptInput(\n            name=\"fallback_text\",\n            display_name=\"Fallback Answer\",\n            info=\"Response returned if the trust score is below the threshold and 'Show Untrustworthy Response' is disabled.\",\n            value=\"Based on the available information, I cannot provide a complete answer to this question.\",\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"Remediated Message\", name=\"remediated_response\", method=\"remediate_response\", types=[\"Message\"]),\n    ]\n    \n    def remediate_response(self) -> Message:\n        if self.score >= self.threshold:\n            self.status = f\"Score {self.score:.2f} ≥ threshold {self.threshold:.2f} → accepted\"\n            return Message(\n                text=f\"{self.response}\\n\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\\n**Trust Score:** {self.score:.2f}\"\n            )\n    \n        self.status = f\"Score {self.score:.2f} < threshold {self.threshold:.2f} → flagged\"\n    \n        if self.show_untrustworthy_response:\n            parts = [\n                self.response,\n                \"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\",\n                f\"**{self.untrustworthy_warning_text.strip()}**\",\n                f\"**Trust Score:** {self.score:.2f}\",\n            ]\n            if self.explanation:\n                parts.append(f\"**Explanation:** {self.explanation}\")\n            return Message(text=\"\\n\\n\".join(parts))\n    \n        return Message(text=self.fallback_text)\n"
+                "value": "from langflow.custom import Component\nfrom langflow.io import (\n    MessageTextInput,\n    PromptInput,\n    Output,\n    BoolInput,\n    HandleInput,\n    FloatInput\n)\nfrom langflow.template import Input\nfrom langflow.schema.message import Message\nfrom langflow.field_typing.range_spec import RangeSpec\n\n\nclass CleanlabRemediator(Component):\n    \"\"\"\n    A component that remediates potentially untrustworthy LLM responses based on trust scores computed by the Cleanlab Evaluator.\n\n    This component takes a response and its associated trust score,\n    and applies remediation strategies based on configurable thresholds and settings.\n\n    Inputs:\n        - response (MessageTextInput): The original LLM-generated response to be evaluated and possibly remediated. The CleanlabEvaluator passes this response through.\n        - score (HandleInput): The trust score output from CleanlabEvaluator (expected to be a float between 0 and 1).\n        - explanation (MessageTextInput): Optional textual explanation for the trust score, to be included in the output.\n        - threshold (Input[float]): Minimum trust score required to accept the response. If the score is lower, the response is remediated.\n        - show_untrustworthy_response (BoolInput): If true, returns the original response with a warning; if false, returns fallback text.\n        - untrustworthy_warning_text (PromptInput): Text warning to append to responses deemed untrustworthy (when showing them).\n        - fallback_text (PromptInput): Replacement message returned if the response is untrustworthy and should be hidden.\n\n    Outputs:\n        - remediated_response (Message): Either:\n            \u2022 the original response,\n            \u2022 the original response with appended warning, or\n            \u2022 the fallback response,\n          depending on the trust score and configuration.\n\n    This component is typically used downstream of CleanlabEvaluator or CleanlabRagValidator\n    to take appropriate action on low-trust responses and inform users accordingly.\n    \"\"\"\n    \n    display_name = \"Cleanlab Remediator\"\n    description = \"Remediates an untrustworthy response based on trust score from the Cleanlab Evaluator, score threshold, and message handling settings.\"\n    icon = \"Cleanlab\"\n    name = \"CleanlabRemediator\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"response\",\n            display_name=\"Response\",\n            info=\"The response to the user's query.\",\n            required=True,\n        ),\n        HandleInput(\n            name=\"score\",\n            display_name=\"Trust Score\",\n            info=\"The trustworthiness score output from the Cleanlab Evaluator.\",\n            input_types=[\"number\"],\n            required=True,\n        ),\n        MessageTextInput(\n            name=\"explanation\",\n            display_name=\"Explanation\",\n            info=\"The explanation from the Cleanlab Evaluator.\",\n            required=False,\n        ),\n        FloatInput(\n            name=\"threshold\",\n            display_name=\"Threshold\",\n            field_type=\"float\",\n            value=0.7,\n            range_spec=RangeSpec(min=0.0, max=1.0, step=0.05),\n            info=\"Minimum score required to show the response unmodified. Reponses with scores above this threshold are considered trustworthy. Reponses with scores below this threshold are considered untrustworthy and will be remediated based on the settings below.\",\n            required=True,\n            show=True,\n        ),\n        BoolInput(\n            name=\"show_untrustworthy_response\",\n            display_name=\"Show Untrustworthy Response\",\n            info=\"If enabled, and the trust score is below the threshold, the original response is shown with the added warning. If disabled, and the trust score is below the threshold, the fallback answer is returned.\",\n            value=True,\n        ),\n        PromptInput(\n            name=\"untrustworthy_warning_text\",\n            display_name=\"Warning for Untrustworthy Response\",\n            info=\"Warning to append to the response if Show Untrustworthy Response is enabled and trust score is below the threshold.\",\n            value=\"\u26a0\ufe0f WARNING: The following response is potentially untrustworthy.\",\n        ),\n        PromptInput(\n            name=\"fallback_text\",\n            display_name=\"Fallback Answer\",\n            info=\"Response returned if the trust score is below the threshold and 'Show Untrustworthy Response' is disabled.\",\n            value=\"Based on the available information, I cannot provide a complete answer to this question.\",\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"Remediated Message\", name=\"remediated_response\", method=\"remediate_response\", types=[\"Message\"]),\n    ]\n    \n    def remediate_response(self) -> Message:\n        if self.score >= self.threshold:\n            self.status = f\"Score {self.score:.2f} \u2265 threshold {self.threshold:.2f} \u2192 accepted\"\n            return Message(\n                text=f\"{self.response}\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n**Trust Score:** {self.score:.2f}\"\n            )\n    \n        self.status = f\"Score {self.score:.2f} < threshold {self.threshold:.2f} \u2192 flagged\"\n    \n        if self.show_untrustworthy_response:\n            parts = [\n                self.response,\n                \"\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\",\n                f\"**{self.untrustworthy_warning_text.strip()}**\",\n                f\"**Trust Score:** {self.score:.2f}\",\n            ]\n            if self.explanation:\n                parts.append(f\"**Explanation:** {self.explanation}\")\n            return Message(text=\"\\n\\n\".join(parts))\n    \n        return Message(text=self.fallback_text)\n"
               },
               "explanation": {
                 "_input_type": "MessageTextInput",
@@ -1529,7 +1529,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "⚠️ WARNING: The following response is potentially untrustworthy."
+                "value": "\u26a0\ufe0f WARNING: The following response is potentially untrustworthy."
               }
             },
             "tool_mode": false

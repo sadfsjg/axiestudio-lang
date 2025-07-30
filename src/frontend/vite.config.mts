@@ -14,11 +14,11 @@ import {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
-  const envLangflowResult = dotenv.config({
+  const envAxiestudioResult = dotenv.config({
     path: path.resolve(__dirname, "../../.env"),
   });
 
-  const envLangflow = envLangflowResult.parsed || {};
+  const envAxiestudio = envAxiestudioResult.parsed || {};
 
   const apiRoutes = API_ROUTES || ["^/api/v1/", "^/api/v2/", "/health"];
 
@@ -44,17 +44,17 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       "process.env.BACKEND_URL": JSON.stringify(
-        envLangflow.BACKEND_URL ?? "http://localhost:7860",
+        envAxiestudio.BACKEND_URL ?? "http://localhost:7860",
       ),
       "process.env.ACCESS_TOKEN_EXPIRE_SECONDS": JSON.stringify(
-        envLangflow.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
+        envAxiestudio.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
       ),
-      "process.env.CI": JSON.stringify(envLangflow.CI ?? false),
-      "process.env.LANGFLOW_AUTO_LOGIN": JSON.stringify(
-        envLangflow.LANGFLOW_AUTO_LOGIN ?? true,
+      "process.env.CI": JSON.stringify(envAxiestudio.CI ?? false),
+      "process.env.AXIESTUDIO_AUTO_LOGIN": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_AUTO_LOGIN ?? true,
       ),
-      "process.env.LANGFLOW_FEATURE_MCP_COMPOSER": JSON.stringify(
-        envLangflow.LANGFLOW_FEATURE_MCP_COMPOSER ?? "false",
+      "process.env.AXIESTUDIO_FEATURE_MCP_COMPOSER": JSON.stringify(
+        envAxiestudio.AXIESTUDIO_FEATURE_MCP_COMPOSER ?? "false",
       ),
     },
     plugins: [react(), svgr(), tsconfigPaths()],

@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Langflow",
+    "title": "Axieflow",
     "version": "1.5.0.post1"
   },
   "paths": {

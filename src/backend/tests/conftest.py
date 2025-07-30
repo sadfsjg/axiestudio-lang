@@ -229,7 +229,7 @@ def load_flows_dir():
 
 @pytest.fixture(name="distributed_env")
 def _setup_env(monkeypatch):
-    monkeypatch.setenv("LANGFLOW_CACHE_TYPE", "redis")
+    monkeypatch.setenv("AXIESTUDIO_CACHE_TYPE", "redis")
     monkeypatch.setenv("LANGFLOW_REDIS_HOST", "result_backend")
     monkeypatch.setenv("LANGFLOW_REDIS_PORT", "6379")
     monkeypatch.setenv("LANGFLOW_REDIS_DB", "0")
@@ -254,7 +254,7 @@ def distributed_client_fixture(
     try:
         db_path = Path(db_dir) / "test.db"
         monkeypatch.setenv("LANGFLOW_DATABASE_URL", f"sqlite:///{db_path}")
-        monkeypatch.setenv("LANGFLOW_AUTO_LOGIN", "false")
+        monkeypatch.setenv("AXIESTUDIO_AUTO_LOGIN", "false")
         # monkeypatch langflow.services.task.manager.USE_CELERY to True
         # monkeypatch.setattr(manager, "USE_CELERY", True)
         monkeypatch.setattr(celery_app, "celery_app", celery_app.make_celery("langflow", Config))
@@ -396,13 +396,13 @@ async def client_fixture(
             db_dir = tempfile.mkdtemp()
             db_path = Path(db_dir) / "test.db"
             monkeypatch.setenv("LANGFLOW_DATABASE_URL", f"sqlite:///{db_path}")
-            monkeypatch.setenv("LANGFLOW_AUTO_LOGIN", "false")
+            monkeypatch.setenv("AXIESTUDIO_AUTO_LOGIN", "false")
             if "load_flows" in request.keywords:
                 shutil.copyfile(
                     pytest.BASIC_EXAMPLE_PATH, Path(load_flows_dir) / "c54f9130-f2fa-4a3e-b22a-3856d946351b.json"
                 )
                 monkeypatch.setenv("LANGFLOW_LOAD_FLOWS_PATH", load_flows_dir)
-                monkeypatch.setenv("LANGFLOW_AUTO_LOGIN", "true")
+                monkeypatch.setenv("AXIESTUDIO_AUTO_LOGIN", "true")
             # Clear the services cache
             from langflow.services.manager import service_manager
 

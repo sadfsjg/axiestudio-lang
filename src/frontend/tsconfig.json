@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,8 +21,12 @@
     "jsx": "react-jsx",
     "noImplicitAny": false,
     "paths": {
-      "@/*": ["*"],
-      "@queries/*": ["controllers/API/queries/*"]
+      "@/*": [
+        "*"
+      ],
+      "@queries/*": [
+        "controllers/API/queries/*"
+      ]
     },
     "baseUrl": "src"
   },
@@ -47,7 +55,7 @@
     "tests/core/inputListComponent.spec.ts",
     "tests/fe-components/intComponent.spec.ts",
     "tests/core/keyPairListComponent.spec.ts",
-    "tests/extended/features/langflowShortcuts.spec.ts",
+    "tests/extended/features/axiestudioShortcuts.spec.ts",
     "tests/core/nestedComponent.spec.ts",
     "tests/fe-components/promptModalComponent.spec.ts",
     "tests/core/python_api_generation.spec.ts",

@@ -75,11 +75,11 @@ const StoreApiKeyFormComponent = ({
                 {CREATE_API_KEY}{" "}
                 <a
                   className="text-high-indigo underline"
-                  href="https://langflow.store/"
+                  href="https://axiestudio.store/"
                   target="_blank"
                   rel="noopener"
                 >
-                  langflow.store
+                  axiestudio.store
                 </a>
               </span>
             </div>

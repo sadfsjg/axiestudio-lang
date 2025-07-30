@@ -40,7 +40,7 @@ class FlowRunUser(FastHttpUser):
     )
 
     # Use the host provided by environment variable or default
-    host = os.getenv("LANGFLOW_HOST", "http://localhost:7860")
+    host = os.getenv("AXIESTUDIO_HOST", "http://localhost:7860")
 
     # Flow ID from environment variable or default example UUID
     flow_id = os.getenv("FLOW_ID")

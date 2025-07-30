@@ -20,8 +20,8 @@ test(
       window.process = window.process || {};
       const newEnv = {
         ...window.process.env,
-        LANGFLOW_AUTO_LOGIN: "false",
-        LANGFLOW_NEW_USER_IS_ACTIVE: "true",
+        AXIESTUDIO_AUTO_LOGIN: "false",
+        AXIESTUDIO_NEW_USER_IS_ACTIVE: "true",
       };
       Object.defineProperty(window.process, "env", {
         value: newEnv,
@@ -38,9 +38,9 @@ test(
 
     // Log in as admin and create test user
     await page.goto("/");
-    await page.waitForSelector("text=sign in to langflow", { timeout: 30000 });
-    await page.getByPlaceholder("Username").fill("langflow");
-    await page.getByPlaceholder("Password").fill("langflow");
+    await page.waitForSelector("text=sign in to axiestudio", { timeout: 30000 });
+    await page.getByPlaceholder("Username").fill("axiestudio");
+    await page.getByPlaceholder("Password").fill("axiestudio");
     await page.evaluate(() => {
       sessionStorage.removeItem("testMockAutoLogin");
     });
@@ -76,7 +76,7 @@ test(
     // ---- USER A SESSION ----
 
     // Log in as User A
-    await page.waitForSelector("text=sign in to langflow", { timeout: 30000 });
+    await page.waitForSelector("text=sign in to axiestudio", { timeout: 30000 });
     await page.getByPlaceholder("Username").fill(userAName);
     await page.getByPlaceholder("Password").fill(userAPassword);
     await page.evaluate(() => {
@@ -133,9 +133,9 @@ test(
     // ---- ADMIN SESSION AGAIN ----
 
     // Log in as admin again
-    await page.waitForSelector("text=sign in to langflow", { timeout: 30000 });
-    await page.getByPlaceholder("Username").fill("langflow");
-    await page.getByPlaceholder("Password").fill("langflow");
+    await page.waitForSelector("text=sign in to axiestudio", { timeout: 30000 });
+    await page.getByPlaceholder("Username").fill("axiestudio");
+    await page.getByPlaceholder("Password").fill("axiestudio");
     await page.evaluate(() => {
       sessionStorage.removeItem("testMockAutoLogin");
     });

@@ -107,9 +107,9 @@ function ApiInterceptor() {
 
     const isAuthorizedURL = (url) => {
       const authorizedDomains = [
-        "https://raw.githubusercontent.com/langflow-ai/langflow_examples/main/examples",
-        "https://api.github.com/repos/langflow-ai/langflow_examples/contents/examples",
-        "https://api.github.com/repos/langflow-ai/langflow",
+        "https://raw.githubusercontent.com/axiestudio-ai/axiestudio_examples/main/examples",
+        "https://api.github.com/repos/axiestudio-ai/axiestudio_examples/contents/examples",
+        "https://api.github.com/repos/axiestudio-ai/axiestudio",
         "auto_login",
       ];
 

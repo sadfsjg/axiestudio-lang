@@ -60,7 +60,7 @@
               "Data"
             ],
             "display_name": "Async Component",
-            "documentation": "https://docs.langflow.org/components-custom-components",
+            "documentation": "",
             "minimized": false,
             "custom_fields": {},
             "output_types": [],
@@ -850,7 +850,7 @@
             "icon": "custom_components",
             "base_classes": [],
             "display_name": "Custom Component",
-            "documentation": "https://docs.langflow.org/components-custom-components",
+            "documentation": "",
             "custom_fields": {},
             "output_types": [],
             "pinned": false,
@@ -893,9 +893,9 @@
     "edges": [
       {
         "source": "Webhook-ww3dq",
-        "sourceHandle": "{œdataTypeœ:œWebhookœ,œidœ:œWebhook-ww3dqœ,œnameœ:œoutput_dataœ,œoutput_typesœ:[œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153Webhook\u0153,\u0153id\u0153:\u0153Webhook-ww3dq\u0153,\u0153name\u0153:\u0153output_data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}",
         "target": "CustomComponent-5ADNr",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-5ADNrœ,œinputTypesœ:[œDataœ],œtypeœ:œstrœ}",
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153CustomComponent-5ADNr\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153str\u0153}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
@@ -914,15 +914,15 @@
             ]
           }
         },
-        "id": "reactflow__edge-Webhook-ww3dq{œdataTypeœ:œWebhookœ,œidœ:œWebhook-ww3dqœ,œnameœ:œoutput_dataœ,œoutput_typesœ:[œDataœ]}-CustomComponent-5ADNr{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-5ADNrœ,œinputTypesœ:[œDataœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Webhook-ww3dq{\u0153dataType\u0153:\u0153Webhook\u0153,\u0153id\u0153:\u0153Webhook-ww3dq\u0153,\u0153name\u0153:\u0153output_data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-CustomComponent-5ADNr{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153CustomComponent-5ADNr\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153str\u0153}",
         "className": "",
         "animated": false
       },
       {
         "source": "ChatInput-ov3Mq",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ov3Mqœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ov3Mq\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}",
         "target": "ChatOutput-5k554",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-5k554œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-5k554\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
@@ -941,15 +941,15 @@
             ]
           }
         },
-        "id": "reactflow__edge-ChatInput-ov3Mq{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ov3Mqœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-5k554{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-5k554œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-ov3Mq{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ov3Mq\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-5k554{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-5k554\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "className": "",
         "animated": false
       },
       {
         "source": "CustomComponent-5ADNr",
-        "sourceHandle": "{œdataTypeœ:œCustomComponentœ,œidœ:œCustomComponent-5ADNrœ,œnameœ:œoutputœ,œoutput_typesœ:[œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153:\u0153CustomComponent\u0153,\u0153id\u0153:\u0153CustomComponent-5ADNr\u0153,\u0153name\u0153:\u0153output\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}",
         "target": "CustomComponent-ErhNJ",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-ErhNJœ,œinputTypesœ:[œDataœ],œtypeœ:œstrœ}",
+        "targetHandle": "{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153CustomComponent-ErhNJ\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153str\u0153}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
@@ -968,7 +968,7 @@
             ]
           }
         },
-        "id": "reactflow__edge-CustomComponent-5ADNr{œdataTypeœ:œCustomComponentœ,œidœ:œCustomComponent-5ADNrœ,œnameœ:œoutputœ,œoutput_typesœ:[œDataœ]}-CustomComponent-ErhNJ{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-ErhNJœ,œinputTypesœ:[œDataœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-CustomComponent-5ADNr{\u0153dataType\u0153:\u0153CustomComponent\u0153,\u0153id\u0153:\u0153CustomComponent-5ADNr\u0153,\u0153name\u0153:\u0153output\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-CustomComponent-ErhNJ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153CustomComponent-ErhNJ\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153str\u0153}",
         "className": "",
         "animated": false
       }
