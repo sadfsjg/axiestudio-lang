@@ -40,7 +40,7 @@ RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Export dependencies from uv.lock to requirements.txt and install with pip
-RUN uv export --no-dev > requirements.txt && \
+RUN uv export --no-dev --no-hashes > requirements.txt && \
     pip install --no-cache-dir -r requirements.txt
 
 # Install the local package in editable mode
