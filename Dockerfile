@@ -28,7 +28,7 @@ RUN python -m venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Install Python dependencies (prod only) - with explicit package path
-RUN uv sync --frozen --no-dev --package src/backend/base
+RUN cd src/backend/base && uv sync --frozen --no-dev
 
 # Build frontend
 WORKDIR /app/src/frontend
